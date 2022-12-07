@@ -4,30 +4,18 @@ from days.template.solution import Solution
 class SolutionDay06(Solution):
     def solve_first_part(self, input: str) -> int:
         marker_length = 4
-        i = 0
-        while True and i < len(input) - marker_length:
-            d = {}
-            for ch in input[i : i + marker_length ]:
-                d.setdefault(ch, 0)
-                d[ch] += 1
-
-            if len(d.keys()) == marker_length: break
-            i += 1
-
-        return i + marker_length
+        return self.get_start_index(input, marker_length)
 
     def solve_second_part(self, input: str) -> int:
         marker_length = 14
+        return self.get_start_index(input, marker_length)
+
+    def get_start_index(self, input: str, marker_length: int) -> int:
         i = 0
         while True and i < len(input) - marker_length:
-            d = {}
-            for ch in input[i: i + marker_length]:
-                d.setdefault(ch, 0)
-                d[ch] += 1
-
-            if len(d.keys()) == marker_length: break
+            d = set(input[i: i + marker_length])
+            if len(d) == len(input[i: i + marker_length]): break
             i += 1
-
         return i + marker_length
 
 
