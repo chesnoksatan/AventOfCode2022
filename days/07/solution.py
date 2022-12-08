@@ -89,7 +89,6 @@ def calculate(entity: Entity) -> int:
 
     return res
 
-# 1117448
 def get_sizes_of_all_entities(entity: Entity) -> list[int]:
     sizes = []
 
